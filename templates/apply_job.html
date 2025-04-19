@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Apply for: {{ job.title }}</h3>
+                <h5>{{ job.company }}</h5>
+            </div>
+            <div class="card-body">
+                <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.resume.label(class="form-label") }}
+                        <span class="text-muted">(Paste your resume text here)</span>
+                        {{ form.resume(class="form-control", rows=10) }}
+                        {% for error in form.resume.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.cover_letter.label(class="form-label") }}
+                        {{ form.cover_letter(class="form-control", rows=8) }}
+                        {% for error in form.cover_letter.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
