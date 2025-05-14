@@ -6,3 +6,4 @@ flask-migrate==4.0.4
 werkzeug==2.3.7
 python-dotenv==1.0.0
 email-validator==2.1.2
+gunicorn==22.0.0
